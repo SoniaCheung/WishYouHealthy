@@ -1,17 +1,20 @@
-package wyh.wishyouhealthy;
+package project.cz2006.wishyouhealthy;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import static wyh.wishyouhealthy.R.id.Btn_cfm_ok_mk;
+import static project.cz2006.wishyouhealthy.R.id.Btn_Login;
 
-public class cfm_mk extends ActionBarActivity{
+public class MyActivity extends Activity{
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -19,24 +22,21 @@ public class cfm_mk extends ActionBarActivity{
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.cfm_mk_main);
+        setContentView(R.layout.activity_main);
 
         initUI();
     }
 
     private void initUI(){
 
-        Button cfm_ok = (Button) findViewById(Btn_cfm_ok_mk);
-        cfm_ok.setOnClickListener(new View.OnClickListener() {
-
+        Button Login = (Button) findViewById(Btn_Login);
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), cfm_mk.class);
+                Intent i = new Intent(getApplicationContext(), Schedule.class);
                 startActivity(i);
             }
         });
     }
-
-
 
 }

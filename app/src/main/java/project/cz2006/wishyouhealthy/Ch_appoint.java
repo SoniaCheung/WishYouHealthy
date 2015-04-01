@@ -1,6 +1,6 @@
-package wyh.wishyouhealthy;
+package project.cz2006.wishyouhealthy;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import static wyh.wishyouhealthy.R.id.Btn_bk2sch;
+import static project.cz2006.wishyouhealthy.R.id.Btn_Back;
 
-public class Mk_appoint extends ActionBarActivity {
-
+public class Ch_appoint extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -19,14 +18,14 @@ public class Mk_appoint extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.mk_appoint_main);
+        setContentView(R.layout.ch_appoint_layout);
 
         initUI();
     }
 
     private void initUI(){
 
-        Button Back = (Button) findViewById(Btn_bk2sch);
+        Button Back = (Button) findViewById(Btn_Back);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +34,4 @@ public class Mk_appoint extends ActionBarActivity {
             }
         });
     }
-
-
 }

@@ -1,4 +1,4 @@
-package wyh.wishyouhealthy;
+package project.cz2006.wishyouhealthy;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

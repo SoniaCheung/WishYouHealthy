@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Schedule">
+    tools:context=".Schedule"
+    android:Orientation="horizontal"
+    android:id="@+id/schedule_view">
 
     <CalendarView
         android:layout_width="355dp"
@@ -22,7 +24,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="193dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Make Appointment"
         android:id="@+id/Btn_mk"
@@ -34,7 +36,7 @@
         android:layout_alignEnd="@+id/Btn_ch" />
 
     <Button
-        android:layout_width="193dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Change Appointment"
         android:id="@+id/Btn_ch"
@@ -44,7 +46,7 @@
         android:layout_alignEnd="@+id/Btn_can" />
 
     <Button
-        android:layout_width="190dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel Appointment"
         android:id="@+id/Btn_can"
@@ -52,5 +54,4 @@
         android:layout_below="@+id/Btn_ch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-</LinearLayout>
+</RelativeLayout>
