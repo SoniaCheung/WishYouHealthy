@@ -1,5 +1,6 @@
-package project.cz2006.wishyouhealthy;
+package wyh.wishyouhealthy;
 
+import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,20 +9,19 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import static project.cz2006.wishyouhealthy.R.id.Btn_Back;
+import static wyh.wishyouhealthy.R.id.Btn_Back;
 
-public class Setting extends Activity {
+public class Setting extends ActionBarActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
+
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.setting_layout);
-
+        setContentView(R.layout.setting_main);
         initUI();
+
     }
 
     private void initUI(){
@@ -35,6 +35,5 @@ public class Setting extends Activity {
             }
         });
     }
-
 
 }

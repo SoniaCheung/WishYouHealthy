@@ -1,6 +1,6 @@
-package project.cz2006.wishyouhealthy;
+package wyh.wishyouhealthy;
 
-import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,24 +10,22 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import static project.cz2006.wishyouhealthy.R.id.Btn_Logout;
-import static project.cz2006.wishyouhealthy.R.id.Btn_mk;
-import static project.cz2006.wishyouhealthy.R.id.Btn_ch;
-import static project.cz2006.wishyouhealthy.R.id.Btn_can;
+import static wyh.wishyouhealthy.R.id.Btn_Logout;
+import static wyh.wishyouhealthy.R.id.Btn_mk;
+import static wyh.wishyouhealthy.R.id.Btn_ch;
+import static wyh.wishyouhealthy.R.id.Btn_can;
 
-public class Schedule extends Activity {
+public class Schedule extends ActionBarActivity  {
 
     protected void onCreate(Bundle savedInstanceState) {
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.schedule_layout);
-
+        setContentView(R.layout.schedule_main);
         initUI();
+
     }
 
     private void initUI(){
@@ -36,7 +34,7 @@ public class Schedule extends Activity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MyActivity.class);
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
             }
         });
