@@ -16,20 +16,14 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
         initUI();
     }
 
     private void initUI(){
-
         Button Login = (Button) findViewById(Btn_Login);
         Login.setOnClickListener(new View.OnClickListener() {
 
