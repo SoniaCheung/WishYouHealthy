@@ -1,5 +1,8 @@
 package wyh.wishyouhealthy;
 
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,61 +13,33 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import static wyh.wishyouhealthy.R.id.Btn_Logout;
+/*import static wyh.wishyouhealthy.R.id.Btn_Logout;
 import static wyh.wishyouhealthy.R.id.Btn_mk;
 import static wyh.wishyouhealthy.R.id.Btn_ch;
-import static wyh.wishyouhealthy.R.id.Btn_can;
+import static wyh.wishyouhealthy.R.id.Btn_can;*/
 
-public class Schedule extends ActionBarActivity  {
+import android.os.Bundle;
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 
-    protected void onCreate(Bundle savedInstanceState) {
+public class Schedule extends FragmentActivity {
+    // When requested, this adapter returns a DemoObjectFragment,
+    // representing an object in the collection.
+    ScheduleTabPagerAdapter mDemoCollectionPagerAdapter;
+    ViewPager mViewPager;
 
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.schedule_main);
-        initUI();
 
+        // ViewPager and its adapters use support library
+        // fragments, so use getSupportFragmentManager.
+        mDemoCollectionPagerAdapter =
+                new ScheduleTabPagerAdapter(
+                        getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mDemoCollectionPagerAdapter);
     }
-
-    private void initUI(){
-
-        Button Logout = (Button) findViewById(Btn_Logout);
-        Logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
-        });
-
-        Button MakeAppoint = (Button) findViewById(Btn_mk);
-        MakeAppoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Mk_appoint.class);
-                startActivity(i);
-            }
-        });
-
-        Button ChAppoint = (Button) findViewById(Btn_ch);
-        ChAppoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Ch_appoint.class);
-                startActivity(i);
-            }
-        });
-
-        Button CanAppoint = (Button) findViewById(Btn_can);
-        CanAppoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Can_appoint.class);
-                startActivity(i);
-            }
-        });
-    }
-
 }
