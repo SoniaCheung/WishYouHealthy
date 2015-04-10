@@ -26,6 +26,48 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".Appset"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".Notification"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".HealthTips"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".Feedback"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".AppsetAA"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".AppsetHelp"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".AppsetTOU"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".Alarm"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".DemoActivity"
+            android:label="Demo Activity Screen"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="in.wptrafficanalyzer.servicealarmdemo.demoactivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".Ch_appoint"
             android:screenOrientation="portrait">
         </activity>

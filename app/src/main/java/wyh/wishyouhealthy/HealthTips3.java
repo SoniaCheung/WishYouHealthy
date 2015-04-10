@@ -6,19 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-//import android.widget.TextView;
+import android.widget.Button;
 
-import static wyh.wishyouhealthy.R.id.imBtn_set;
+import static wyh.wishyouhealthy.R.id.Btn_Back_Set_4_3;
 
-public class CalendarLogout extends Fragment {
+public class HealthTips3 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View android = inflater.inflate(R.layout.calendar_logout, container, false);
-        //((TextView)android.findViewById(R.id.textView)).setText("calendar");
-
-        ImageButton setting = (ImageButton)android.findViewById(imBtn_set);
+        View android = inflater.inflate(R.layout.healthtips_3, container, false);
+        Button setting = (Button)android.findViewById(Btn_Back_Set_4_3);
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +23,6 @@ public class CalendarLogout extends Fragment {
                 startActivity(i);
             }
         });
-
         return android;
     }
 
