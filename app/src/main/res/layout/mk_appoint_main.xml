@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical" >
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textMakeAppointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"/>
-</LinearLayout>
+        android:textSize="16sp"/>
+    <Spinner
+        android:id="@+id/spinner_doctor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textMakeAppointment"/>
+    <Button
+        android:id="@+id/pick_date_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_doctor"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/pick_time_start"
+        android:text="@string/pick_date"/>
+    <Button
+        android:id="@+id/pick_time_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_doctor"
+        android:layout_alignParentRight="true"
+        android:text="@string/pick_time"/>
+    <Button
+        android:id="@+id/pick_date_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pick_date_start"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/pick_time_end"
+        android:text="@string/pick_date"/>
+    <Button
+        android:id="@+id/pick_time_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pick_time_start"
+        android:layout_alignParentRight="true"
+        android:text="@string/pick_time"/>
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pick_time_end"
+        android:layout_alignParentRight="true"
+        android:text="@string/confirm"/>
+</RelativeLayout>
