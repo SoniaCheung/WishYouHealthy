@@ -6,42 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".Setting">
 
-    <EditText
-        android:layout_width="212dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_gravity="center_horizontal"
-        android:text="This is the setting page"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Switch"
-        android:id="@+id/switch1"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notification"
-        android:id="@+id/textView"
-        android:layout_toStartOf="@+id/switch1"
-        android:layout_alignTop="@+id/switch1"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_toLeftOf="@+id/switch1" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
-        android:id="@+id/Btn_Back"
-        android:layout_marginBottom="44dp"
+        android:id="@+id/Btn_Back_Main"
+        android:layout_gravity="right|bottom"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="168dp"
+        android:layout_height="161dp"
+        android:id="@+id/imBtn_Appset"
+        android:src="@mipmap/ic_action_wizard"
+        android:layout_gravity="left|top"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imBtn_noti"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/TV_AS" />
+
+    <ImageButton
+        android:layout_width="195dp"
+        android:layout_height="186dp"
+        android:id="@+id/imBtn_noti"
+        android:layout_gravity="right|top"
+        android:src="@mipmap/ic_action_bell"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imBtn_fb"
+        android:src="@mipmap/ic_action_users"
+        android:layout_below="@+id/imBtn_noti"
+        android:layout_alignLeft="@+id/imBtn_noti"
+        android:layout_alignStart="@+id/imBtn_noti"
+        android:layout_above="@+id/Btn_Back_Main"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imBtn_ht"
+        android:src="@mipmap/ic_action_bulb"
+        android:layout_above="@+id/Btn_Back_Main"
+        android:layout_below="@+id/TV_AS"
+        android:layout_toLeftOf="@+id/imBtn_fb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Health Tips"
+        android:id="@+id/TV_HT"
+        android:layout_alignBottom="@+id/imBtn_fb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="App Setting"
+        android:id="@+id/TV_AS"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imBtn_fb"
+        android:layout_toStartOf="@+id/imBtn_fb" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Notification"
+        android:id="@+id/TV_noti"
+        android:layout_above="@+id/imBtn_fb"
+        android:layout_toRightOf="@+id/imBtn_Appset"
+        android:layout_toEndOf="@+id/imBtn_Appset" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Feedback"
+        android:id="@+id/TV_FB"
+        android:layout_above="@+id/Btn_Back_Main"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
