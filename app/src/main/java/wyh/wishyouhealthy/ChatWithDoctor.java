@@ -1,10 +1,10 @@
 package wyh.wishyouhealthy;
 
-import android.app.ListActivity;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by An on 4/4/2015.
  */
-public class ChatWithDoctor extends ListActivity {
+public class ChatWithDoctor extends android.support.v4.app.Fragment {
 
     PatientClient patientClient;
     EditText newMessage;
@@ -23,17 +23,20 @@ public class ChatWithDoctor extends ListActivity {
     ChatAdapter adapter;
     ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat_with_doctor);
 
-        newMessage = (EditText) findViewById(R.id.newmsg);
-        sendButton = (Button) findViewById(R.id.sendButton);
-        listView = (ListView) findViewById(android.R.id.list);
-        adapter = new ChatAdapter(bubbles, this);
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState){
+        View foo = inflater.inflate(R.layout.chat_with_doctor,
+                container, false);
+
+        newMessage = (EditText) foo.findViewById(R.id
+                .newmsg);
+        sendButton = (Button) foo.findViewById(R.id
+                .sendButton);
+        listView = (ListView) foo.findViewById(android.R.id
+                .list);
+        adapter = new ChatAdapter(bubbles,
+                this.getActivity().getApplicationContext());
         listView.setAdapter(adapter);
 
 
@@ -56,7 +59,7 @@ public class ChatWithDoctor extends ListActivity {
                 while (true) {
                     if (patientClient.isNewMessage()) {
                         patientClient.messageUpdated();
-                        runOnUiThread(new Runnable() {
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 adapter.setBubbles(patientClient.getBubbles());
@@ -68,5 +71,6 @@ public class ChatWithDoctor extends ListActivity {
             }
         });
         thread.start();
+        return foo;
     }
 }

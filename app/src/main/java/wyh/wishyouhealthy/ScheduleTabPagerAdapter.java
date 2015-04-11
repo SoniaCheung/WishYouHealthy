@@ -24,12 +24,18 @@ public class ScheduleTabPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 //Fragment for changing appointment tab
                 return new AppointmentChange();
+            case 3:
+                //by An Luong, chat with Doctor
+                return new ChatWithDoctor();
+            case 4:
+                //by An Luong, chat with Doctor
+                return new Setting();
         }
         return null;
     }
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return 3; //No of Tabs
+        return 5; //No of Tabs
     }
 }
