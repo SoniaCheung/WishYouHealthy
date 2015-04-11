@@ -5,29 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by An on 4/4/2015.
  */
 public class ChatWithDoctor extends ListActivity {
 
-    //TextView doctorMassage;
     PatientClient patientClient;
-    String doctorMessage = "nothing";
     EditText newMessage;
     Button sendButton;
     ListView listView;
-    ArrayAdapter<String> adapter;
-    List<String> messages;
-    boolean isLocked = false;
-    boolean isNewMessage = false;
+    ChatAdapter adapter;
+    ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,38 +30,37 @@ public class ChatWithDoctor extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_with_doctor);
 
-        messages = new ArrayList<String>();
-        messages.add("an");
-        messages.add("ba");
-        messages.add("cu");
         newMessage = (EditText) findViewById(R.id.newmsg);
         sendButton = (Button) findViewById(R.id.sendButton);
         listView = (ListView) findViewById(android.R.id.list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messages);
+        adapter = new ChatAdapter(bubbles, this);
         listView.setAdapter(adapter);
+
+
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bubbles.add(new Bubble("An", newMessage.getText().toString()));
+                patientClient.sendToServer(new Bubble("An", newMessage.getText().toString()));
+                adapter.notifyDataSetChanged();
+                newMessage.getText().clear();
+            }
+        });
 
         patientClient = new PatientClient();
         patientClient.execute();
 
         Thread thread = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 while (true) {
-                    try {
-                        if (!doctorMessage.equals(patientClient.getMessage())) {
-                            isNewMessage = true;
-                            doctorMessage = patientClient.getMessage();
-                        };
-                    } catch (Exception e) {
-
-                    }
-                    if (isNewMessage) {
-                        isNewMessage = false;
+                    if (patientClient.isNewMessage()) {
+                        patientClient.messageUpdated();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                adapter.add(doctorMessage);
+                                adapter.setBubbles(patientClient.getBubbles());
+                                adapter.notifyDataSetChanged();
                             }
                         });
                     }
@@ -75,11 +68,5 @@ public class ChatWithDoctor extends ListActivity {
             }
         });
         thread.start();
-
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                adapter.add(newMessage.getText().toString());
-            }
-        });
     }
 }
