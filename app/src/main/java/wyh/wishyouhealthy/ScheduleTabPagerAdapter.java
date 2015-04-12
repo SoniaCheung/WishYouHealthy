@@ -26,11 +26,14 @@ public class ScheduleTabPagerAdapter extends FragmentStatePagerAdapter {
                 //by An Luong, chat with Doctor
                 return new ChatWithDoctor();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             case 4:
                 //by An Luong, chat with Doctor
                 return new Setting();
 >>>>>>> origin/master
+=======
+>>>>>>> 13_04_2015_0152
         }
         return null;
     }

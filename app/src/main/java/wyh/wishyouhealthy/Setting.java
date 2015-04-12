@@ -20,10 +20,14 @@ import static wyh.wishyouhealthy.R.id.imBtn_fb;
 import static wyh.wishyouhealthy.R.id.imBtn_ht;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Setting extends Activity{
 =======
 public class Setting extends Fragment {
 >>>>>>> origin/master
+=======
+public class Setting extends Activity{
+>>>>>>> 13_04_2015_0152
 
     View foo;
 
@@ -37,7 +41,11 @@ public class Setting extends Fragment {
 
     private void initUI() {
 
+<<<<<<< HEAD
         Button Back = (Button) foo.findViewById(Btn_Back_Main);
+=======
+        Button Back = (Button) findViewById(Btn_Back_Main);
+>>>>>>> 13_04_2015_0152
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +97,7 @@ public class Setting extends Fragment {
         });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         ImageButton ht = (ImageButton) findViewById (imBtn_ht);
         ht.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,16 +114,45 @@ public class Setting extends Fragment {
                                 .getApplicationContext(),
                                 HealthTips.class);
 >>>>>>> origin/master
+=======
+        ImageButton appset = (ImageButton) findViewById(imBtn_Appset);
+        appset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent (getApplicationContext(),Appset.class);
+                startActivity(i);
+            }
+        });
+
+        ImageButton noti = (ImageButton) findViewById (imBtn_noti);
+        noti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent (getApplicationContext(),Notification.class);
+                startActivity(i);
+            }
+        });
+
+        ImageButton ht = (ImageButton) findViewById (imBtn_ht);
+        ht.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent (getApplicationContext(),HealthTips.class);
+>>>>>>> 13_04_2015_0152
                 startActivity(i);
             }
         });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 13_04_2015_0152
         ImageButton fb = (ImageButton) findViewById(imBtn_fb);
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent (getApplicationContext(),Feedback.class);
+<<<<<<< HEAD
 =======
         ImageButton fb = (ImageButton) foo.findViewById
                 (imBtn_fb);
@@ -126,6 +164,8 @@ public class Setting extends Fragment {
                                 .getApplicationContext(),
                                 Feedback.class);
 >>>>>>> origin/master
+=======
+>>>>>>> 13_04_2015_0152
                 startActivity(i);
             }
         });
