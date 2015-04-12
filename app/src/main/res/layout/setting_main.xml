@@ -28,7 +28,8 @@
         android:layout_toLeftOf="@+id/imBtn_noti"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/TV_AS" />
+        android:layout_alignBottom="@+id/TV_AS"
+        android:scaleType="fitCenter" />
 
     <ImageButton
         android:layout_width="195dp"
@@ -38,7 +39,8 @@
         android:src="@mipmap/ic_action_bell"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -50,7 +52,8 @@
         android:layout_alignStart="@+id/imBtn_noti"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/Btn_Back_Main"/>
+        android:layout_above="@+id/Btn_Back_Main"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -61,7 +64,8 @@
         android:layout_toLeftOf="@+id/imBtn_fb"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/Btn_Back_Main"/>
+        android:layout_above="@+id/Btn_Back_Main"
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:layout_width="wrap_content"
