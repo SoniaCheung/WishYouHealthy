@@ -9,6 +9,11 @@
     <string name="appointment_delete">delete</string>
     <string name="confirm">CONFIRM!</string>
 
+    <color name="theme_colour">#009687</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#808080</color>
+
+
     <string-array name="array_doctor">
         <item>yiming</item>
         <item>an</item>

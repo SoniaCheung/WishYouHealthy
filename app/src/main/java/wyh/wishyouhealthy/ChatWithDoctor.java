@@ -1,15 +1,19 @@
 package wyh.wishyouhealthy;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 /**
  * Created by An on 4/4/2015.
@@ -28,6 +32,15 @@ public class ChatWithDoctor extends android.support.v4.app.Fragment {
                              ViewGroup container, Bundle savedInstanceState){
         View foo = inflater.inflate(R.layout.chat_with_doctor,
                 container, false);
+
+        ImageButton setting = (ImageButton)foo.findViewById(imBtn_set);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Setting.class);
+                startActivity(i);
+            }
+        });
 
         newMessage = (EditText) foo.findViewById(R.id
                 .newmsg);

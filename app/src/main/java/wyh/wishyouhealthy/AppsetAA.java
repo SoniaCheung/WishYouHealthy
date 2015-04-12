@@ -30,14 +30,15 @@ public class AppsetAA extends ActionBarActivity {
 
     private void initUI() {
 
-        Button Back = (Button) findViewById(Btn_Back_Set_1);
-        Back.setOnClickListener(new View.OnClickListener() {
+       Button Back = (Button) findViewById(Btn_Back_Set_1);
+       Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), Setting.class);
                 startActivity(i);
             }
         });
+
 
         Button AboutApp = (Button) findViewById(Btn_AA);
         AboutApp.setOnClickListener(new View.OnClickListener() {

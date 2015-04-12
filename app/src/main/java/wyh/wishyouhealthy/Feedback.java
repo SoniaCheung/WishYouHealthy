@@ -13,8 +13,7 @@ import android.widget.Toast;
 import static wyh.wishyouhealthy.R.id.Btn_Back_Set_4;
 import static wyh.wishyouhealthy.R.id.Btn_Submit_FB;
 
-
-public class Feedback  extends ActionBarActivity{
+public class Feedback  extends ActionBarActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -25,8 +24,8 @@ public class Feedback  extends ActionBarActivity{
     }
 
     private void initUI(){
-        Button Login = (Button) findViewById(Btn_Back_Set_4);
-        Login.setOnClickListener(new View.OnClickListener() {
+        Button Back = (Button) findViewById(Btn_Back_Set_4);
+        Back.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), Setting.class);
