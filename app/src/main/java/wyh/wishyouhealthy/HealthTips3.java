@@ -15,7 +15,7 @@ public class HealthTips3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View android = inflater.inflate(R.layout.healthtips_3, container, false);
-        Button setting = (Button)android.findViewById(Btn_Back_Set_4_3);
+       Button setting = (Button)android.findViewById(Btn_Back_Set_4_3);
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,6 +23,7 @@ public class HealthTips3 extends Fragment {
                 startActivity(i);
             }
         });
+
         return android;
     }
 

@@ -31,7 +31,7 @@ public class Appset extends ActionBarActivity {
 
     private void initUI() {
 
-        Button Back = (Button) findViewById(Btn_Back_Set_1);
+       Button Back = (Button) findViewById(Btn_Back_Set_1);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

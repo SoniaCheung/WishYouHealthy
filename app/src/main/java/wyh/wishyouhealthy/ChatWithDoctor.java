@@ -1,73 +1,82 @@
 package wyh.wishyouhealthy;
 
-import android.app.ListActivity;
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 /**
  * Created by An on 4/4/2015.
  */
-public class ChatWithDoctor extends ListActivity {
+public class ChatWithDoctor extends android.support.v4.app.Fragment {
 
-    //TextView doctorMassage;
     PatientClient patientClient;
-    String doctorMessage = "nothing";
     EditText newMessage;
     Button sendButton;
     ListView listView;
-    ArrayAdapter<String> adapter;
-    List<String> messages;
-    boolean isLocked = false;
-    boolean isNewMessage = false;
+    ChatAdapter adapter;
+    ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat_with_doctor);
 
-        messages = new ArrayList<String>();
-        messages.add("an");
-        messages.add("ba");
-        messages.add("cu");
-        newMessage = (EditText) findViewById(R.id.newmsg);
-        sendButton = (Button) findViewById(R.id.sendButton);
-        listView = (ListView) findViewById(android.R.id.list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messages);
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState){
+        View foo = inflater.inflate(R.layout.chat_with_doctor,
+                container, false);
+
+        ImageButton setting = (ImageButton)foo.findViewById(imBtn_set);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Setting.class);
+                startActivity(i);
+            }
+        });
+
+        newMessage = (EditText) foo.findViewById(R.id
+                .newmsg);
+        sendButton = (Button) foo.findViewById(R.id
+                .sendButton);
+        listView = (ListView) foo.findViewById(android.R.id
+                .list);
+        adapter = new ChatAdapter(bubbles,
+                this.getActivity().getApplicationContext());
         listView.setAdapter(adapter);
+
+
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bubbles.add(new Bubble("An", newMessage.getText().toString()));
+                patientClient.sendToServer(new Bubble("An", newMessage.getText().toString()));
+                adapter.notifyDataSetChanged();
+                newMessage.getText().clear();
+            }
+        });
 
         patientClient = new PatientClient();
         patientClient.execute();
 
         Thread thread = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 while (true) {
-                    try {
-                        if (!doctorMessage.equals(patientClient.getMessage())) {
-                            isNewMessage = true;
-                            doctorMessage = patientClient.getMessage();
-                        };
-                    } catch (Exception e) {
-
-                    }
-                    if (isNewMessage) {
-                        isNewMessage = false;
-                        runOnUiThread(new Runnable() {
+                    if (patientClient.isNewMessage()) {
+                        patientClient.messageUpdated();
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                adapter.add(doctorMessage);
+                                adapter.setBubbles(patientClient.getBubbles());
+                                adapter.notifyDataSetChanged();
                             }
                         });
                     }
@@ -75,11 +84,6 @@ public class ChatWithDoctor extends ListActivity {
             }
         });
         thread.start();
-
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                adapter.add(newMessage.getText().toString());
-            }
-        });
+        return foo;
     }
 }

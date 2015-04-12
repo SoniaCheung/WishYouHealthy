@@ -7,13 +7,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-
 /*import static wyh.wishyouhealthy.R.id.Btn_Logout;
 import static wyh.wishyouhealthy.R.id.Btn_mk;
 import static wyh.wishyouhealthy.R.id.Btn_ch;
@@ -31,8 +31,10 @@ public class Schedule extends FragmentActivity {
     ScheduleTabPagerAdapter mDemoCollectionPagerAdapter;
     ViewPager mViewPager;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setHasOptionsMenu(true);
         setContentView(R.layout.schedule_main);
 
         // ViewPager and its adapters use support library
@@ -43,6 +45,5 @@ public class Schedule extends FragmentActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mDemoCollectionPagerAdapter);
     }
-
 
 }
