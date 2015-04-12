@@ -1,55 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical" >
-    <TextView
-        android:id="@+id/textMakeAppointment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"/>
-    <Spinner
-        android:id="@+id/spinner_doctor"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textMakeAppointment"/>
-    <Button
-        android:id="@+id/pick_date_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_doctor"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/pick_time_start"
-        android:text="@string/pick_date"/>
-    <Button
-        android:id="@+id/pick_time_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_doctor"
-        android:layout_alignParentRight="true"
-        android:text="@string/pick_time"/>
-    <Button
-        android:id="@+id/pick_date_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pick_date_start"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/pick_time_end"
-        android:text="@string/pick_date"/>
-    <Button
-        android:id="@+id/pick_time_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pick_time_start"
-        android:layout_alignParentRight="true"
-        android:text="@string/pick_time"/>
-    <Button
-        android:id="@+id/confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pick_time_end"
-        android:layout_alignParentRight="true"
-        android:text="@string/confirm"/>
-</RelativeLayout>
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="\nFIRSTLY,\nPICK A STARTING TIME,\n"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:textColor="#009687"
+            android:background="#EFEFEF"/>
+
+        <DatePicker
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_start"/>
+
+        <TimePicker
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_start"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="\nSECONDLY,\nPICK A ENDING TIME.\n"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:textColor="#009687"
+            android:background="#EFEFEF"/>
+        <DatePicker
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_end"/>
+
+        <TimePicker
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_end"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="\nLASTLY,\nCHOOSE OUR DOCTOR,\n"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:background="#EFEFEF"
+            android:textColor="#009687"/>
+        <Spinner
+            android:id="@+id/spinner_doctor"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#009687"/>
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/confirm"
+            android:textColor="#FFFFFF"
+            android:background="#009687"
+            android:minHeight="80dp"/>
+    </LinearLayout>
+</ScrollView>

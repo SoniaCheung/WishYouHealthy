@@ -30,14 +30,14 @@ public class PatientClient extends AsyncTask<Void, Void, Void> {
 
     JSONObject json;
     String dataFromServer;
-    Bubble bubble = new Bubble("an", "hello");
+    Bubble bubble = new Bubble("Xing Zhenchang", "hello");
     ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
     boolean isNewMessage = true;
 
 
     public PatientClient() {
 
-        bubbles.add(new Bubble("an", "hello"));
+        bubbles.add(new Bubble("Xing Zhenchang", "hello"));
 
     }
 
@@ -97,6 +97,10 @@ public class PatientClient extends AsyncTask<Void, Void, Void> {
 
     public ArrayList<Bubble> getBubbles() {
         return bubbles;
+    }
+
+    public void addBubbles(Bubble bubble){
+        bubbles.add(bubble);
     }
 
     public void messageUpdated() {

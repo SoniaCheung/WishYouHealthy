@@ -32,15 +32,19 @@
             android:layout_marginLeft="10dp"
             android:hint="Send a message"
             android:id="@+id/newmsg"
+
+            android:textColor="#009687"
+            android:background="#FFFFFF"
             ></EditText>
 
         <Button
             android:id="@+id/sendButton"
-            android:background="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="Send"></Button>
+            android:text="Send"
+            android:textColor="#FFFFFF"
+            android:background="#009687"></Button>
     </LinearLayout>
 </RelativeLayout>

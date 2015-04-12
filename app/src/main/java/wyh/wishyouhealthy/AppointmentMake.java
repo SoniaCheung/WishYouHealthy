@@ -7,11 +7,11 @@ package wyh.wishyouhealthy;
  * .com/android/android-date-picker-example/.
  */
 
+
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,99 +21,82 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.util.Calendar;
 
 public class AppointmentMake extends Fragment {
 
-    private ArrayAdapter<CharSequence> adapterFoo;
-    private TextView tvDisplayDate;
-    private Button buttonChangeDateStart;
-    private Button buttonChangeTimeStart;
-    private Button buttonChangeDateEnd;
-    private Button buttonChangeTimeEnd;
+    private ArrayAdapter<String> adapterFoo;
     private Button buttonConfirm;
+    private TextView textConfirm;
+    private Spinner spinnerFoo;
 
-    private int year;
-    private int month;
-    private int day;
+    private String doctor;
+    private int yearStart, yearEnd;
+    private int monthStart, monthEnd;
+    private int dayStart, dayEnd;
+    private int hourStart, hourEnd;
+    private int minStart, minEnd;
     static final int DATE_DIALOG_ID = 999;
+    private String[] doctorList= {"Terry", "Micheal", "Henry", "Jone"};
 
-    //private static final String[] m={"A","B","O","AB","others"};
-
+    DatePicker dateStart, dateEnd;
+    TimePicker timeStart, timeEnd;
+    private AppointmentData data1, data2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+        //
+        data1 = new AppointmentData(getActivity().getApplicationContext(), "appmt1");
+        data2 = new AppointmentData(getActivity().getApplicationContext(), "appmt2");
+        //
         View foo = inflater.inflate(R.layout.mk_appoint_main, container, false);
-        ((TextView)foo.findViewById(R.id.textMakeAppointment)).setText("Make appoint");
+        //
 
-        Spinner spinnerFoo = (Spinner) foo.findViewById(R
-                .id.spinner_doctor);
+        spinnerFoo = (Spinner) foo.findViewById(R.id.spinner_doctor);
         // link the content to the adapter
-        adapterFoo = ArrayAdapter.createFromResource
-                (getActivity().getApplicationContext(), R.array.array_doctor, android.R.layout.simple_spinner_item);
-
+        adapterFoo = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.spinner_item, doctorList);
+               // = ArrayAdapter.createFromResource
+                //(getActivity().getApplicationContext(), R.array.array_doctor, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
-        adapterFoo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ///adapterFoo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinnerFoo.setAdapter(adapterFoo);
 
-        buttonChangeDateStart = (Button) foo.findViewById
-                (R.id.pick_date_start);
-        buttonChangeTimeStart = (Button) foo.findViewById(R.id
-                .pick_time_start);
-        buttonChangeDateEnd = (Button) foo.findViewById(R.id
-                .pick_date_end);
-        buttonChangeTimeEnd = (Button) foo.findViewById(R.id
-                .pick_time_end);
+        dateStart = (DatePicker) foo.findViewById(R.id.date_start);
+        dateEnd = (DatePicker) foo.findViewById(R.id.date_end);
+        timeStart = (TimePicker) foo.findViewById(R.id.time_start);
+        timeEnd = (TimePicker) foo.findViewById(R.id.time_end);
         buttonConfirm = (Button) foo.findViewById(R.id
                 .confirm);
-        // button register.
 
-        // set onclick listers for those buttons.
-        buttonChangeDateStart.setOnClickListener(new Button
-                .OnClickListener() {
-            public void onClick (View v) {
-                DialogFragment newFragment = new
-                        DatePickerFragment();
-                newFragment.show
-                        (getActivity().getFragmentManager(),
-                                "datePicker");
+
+        buttonConfirm.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v){
+                //
+                yearStart = dateStart.getYear();
+                monthStart = dateStart.getMonth() + 1;
+                dayStart = dateStart.getDayOfMonth();
+                hourStart = timeStart.getCurrentHour();
+                minStart = timeStart.getCurrentMinute();
+                //
+                yearEnd = dateEnd.getYear();
+                monthEnd = dateEnd.getMonth() + 1;
+                dayEnd = dateEnd.getDayOfMonth();
+                hourEnd = timeEnd.getCurrentHour();
+                minEnd = timeEnd.getCurrentMinute();
+                //
+                doctor = spinnerFoo.getSelectedItem().toString();
+                //
+                if(data1.checkAvailable()) {
+                    data1.addAppointment(doctor, yearStart, monthStart, dayStart, hourStart, minStart,
+                            yearEnd, monthEnd, dayEnd, hourEnd, minEnd);
+                } else if(data2.checkAvailable()){
+                    data2.addAppointment(doctor, yearStart, monthStart, dayStart, hourStart, minStart,
+                            yearEnd, monthEnd, dayEnd, hourEnd, minEnd);
+                }
             }
         });
-        buttonChangeTimeStart.setOnClickListener(new Button
-                .OnClickListener() {
-            public void onClick (View v) {
-                DialogFragment newFragment = new TimePickerFragment();
-                newFragment.show
-                        (getActivity().getFragmentManager(),
-                                "timePicker");
-            }
-        });
-        buttonChangeDateEnd.setOnClickListener(new Button
-                .OnClickListener() {
-            public void onClick (View v) {
-                DialogFragment newFragment = new
-                        DatePickerFragment();
-                newFragment.show
-                        (getActivity().getFragmentManager(),
-                                "datePicker");
-            }
-        });
-        buttonChangeTimeEnd.setOnClickListener(new Button
-                .OnClickListener() {
-            public void onClick (View v) {
-                DialogFragment newFragment = new TimePickerFragment();
-                newFragment.show
-                        (getActivity().getFragmentManager(),
-                                "timePicker");
-            }
-        });
-        /*buttonChangeDateStart.setOnClickListener(new
-        Button
-                .OnClickListener() {
-            // code needed for further implements.
-        });*/
 
         return foo;
     }

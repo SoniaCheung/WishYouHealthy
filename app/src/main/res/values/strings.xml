@@ -7,7 +7,7 @@
     <string name="pick_date">Select date</string>
     <string name="appointment_change">change</string>
     <string name="appointment_delete">delete</string>
-    <string name="confirm">ok lah</string>
+    <string name="confirm">CONFIRM!</string>
 
     <string-array name="array_doctor">
         <item>yiming</item>

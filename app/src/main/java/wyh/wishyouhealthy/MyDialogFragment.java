@@ -12,6 +12,8 @@ import android.view.View;
  */
 public class MyDialogFragment extends DialogFragment {
 
+    private AppointmentData data;
+
     public static MyDialogFragment newInstance(int title) {
         MyDialogFragment frag = new MyDialogFragment();
         Bundle args = new Bundle();
@@ -20,9 +22,12 @@ public class MyDialogFragment extends DialogFragment {
         return frag;
     }
 
+    public void setPosition(int position){
+        data = new AppointmentData(getActivity().getApplicationContext(), "appmt"+(position+1));
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        //int title = getArguments().getInt("title");
         return new AlertDialog.Builder(getActivity())
                 //.setIcon(R.drawable.alert_dialog_icon)
                 //.setTitle(title)
@@ -36,10 +41,10 @@ public class MyDialogFragment extends DialogFragment {
                             }
                         }
                 )
-                .setNegativeButton(R.string
-                                .appointment_delete,
+                .setNegativeButton(R.string.appointment_delete,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
+                                data.setAvailable(true);
                             }
                         }
                 )

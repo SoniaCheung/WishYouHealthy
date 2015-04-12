@@ -43,8 +43,9 @@ public class ChatWithDoctor extends android.support.v4.app.Fragment {
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bubbles.add(new Bubble("An", newMessage.getText().toString()));
-                patientClient.sendToServer(new Bubble("An", newMessage.getText().toString()));
+                bubbles.add(new Bubble("Xing Zhenchang", newMessage.getText().toString()));
+                patientClient.sendToServer(new Bubble("Xing Zhenchang", newMessage.getText().toString()));
+                patientClient.addBubbles(new Bubble("Xing Zhenchang", newMessage.getText().toString()));
                 adapter.notifyDataSetChanged();
                 newMessage.getText().clear();
             }
