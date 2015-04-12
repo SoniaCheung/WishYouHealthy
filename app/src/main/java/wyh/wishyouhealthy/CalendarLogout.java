@@ -7,11 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 //import android.widget.TextView;
 
 import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 public class CalendarLogout extends Fragment {
+
+    /*@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,5 +38,12 @@ public class CalendarLogout extends Fragment {
 
         return android;
     }
+/*
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.setting).setVisible(true);
+        super.onPrepareOptionsMenu(menu);
+
+    }*/
 
 }

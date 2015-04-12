@@ -15,7 +15,7 @@ import static wyh.wishyouhealthy.R.id.Btn_Back_Set_4_2;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View android = inflater.inflate(R.layout.healthtips_2, container, false);
-            Button setting = (Button)android.findViewById(Btn_Back_Set_4_2);
+           Button setting = (Button)android.findViewById(Btn_Back_Set_4_2);
             setting.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -23,6 +23,7 @@ import static wyh.wishyouhealthy.R.id.Btn_Back_Set_4_2;
                     startActivity(i);
                 }
             });
+
             return android;
         }
 

@@ -12,6 +12,7 @@ package wyh.wishyouhealthy;
  */
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -23,6 +24,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
@@ -32,6 +34,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 public class AppointmentChange extends Fragment {
 
@@ -50,6 +54,16 @@ public class AppointmentChange extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View foo = inflater.inflate(R.layout
                 .ch_appoint_main, null);
+
+        ImageButton setting = (ImageButton)foo.findViewById(imBtn_set);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Setting.class);
+                startActivity(i);
+            }
+        });
+
         return foo;
     }
 

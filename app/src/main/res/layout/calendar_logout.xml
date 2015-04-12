@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="match_parent"
+              tools:context=".MainActivity" >
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="57dp"
+        android:id="@+id/imBtn_set"
+        android:src="@mipmap/ic_action_gear"
+        android:layout_gravity="right" />
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     android:weightSum="1">
-
-    <ImageButton
-        android:layout_width="58dp"
-        android:layout_height="35dp"
-        android:id="@+id/imBtn_set"
-        android:src="@mipmap/ic_action_gear"
-        android:layout_weight="0.16"
-        android:layout_gravity="right" />
 
     <CalendarView
         android:layout_width="355dp"
@@ -30,3 +37,4 @@
         android:layout_alignParentEnd="true" />
 
 </LinearLayout>
+    </LinearLayout>
