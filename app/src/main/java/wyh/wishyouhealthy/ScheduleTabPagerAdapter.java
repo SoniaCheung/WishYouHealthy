@@ -25,12 +25,22 @@ public class ScheduleTabPagerAdapter extends FragmentStatePagerAdapter {
             case 3:
                 //by An Luong, chat with Doctor
                 return new ChatWithDoctor();
+<<<<<<< HEAD
+=======
+            case 4:
+                //by An Luong, chat with Doctor
+                return new Setting();
+>>>>>>> origin/master
         }
         return null;
     }
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
+<<<<<<< HEAD
         return 4; //No of Tabs
+=======
+        return 5; //No of Tabs
+>>>>>>> origin/master
     }
 }

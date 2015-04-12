@@ -1,7 +1,10 @@
 package wyh.wishyouhealthy;
 
 import android.app.Fragment;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> origin/master
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +15,11 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 
 import static wyh.wishyouhealthy.R.id.imBtn_set;
+=======
+>>>>>>> origin/master
 
 /**
  * Created by An on 4/4/2015.
@@ -26,6 +32,7 @@ public class ChatWithDoctor extends android.support.v4.app.Fragment {
     ListView listView;
     ChatAdapter adapter;
     ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
+<<<<<<< HEAD
 
 
     public View onCreateView(LayoutInflater inflater,
@@ -41,6 +48,14 @@ public class ChatWithDoctor extends android.support.v4.app.Fragment {
                 startActivity(i);
             }
         });
+=======
+
+
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState){
+        View foo = inflater.inflate(R.layout.chat_with_doctor,
+                container, false);
+>>>>>>> origin/master
 
         newMessage = (EditText) foo.findViewById(R.id
                 .newmsg);

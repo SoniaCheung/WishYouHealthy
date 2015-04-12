@@ -19,62 +19,113 @@ import static wyh.wishyouhealthy.R.id.imBtn_noti;
 import static wyh.wishyouhealthy.R.id.imBtn_fb;
 import static wyh.wishyouhealthy.R.id.imBtn_ht;
 
+<<<<<<< HEAD
 public class Setting extends Activity{
+=======
+public class Setting extends Fragment {
+>>>>>>> origin/master
 
-    protected void onCreate(Bundle savedInstanceState) {
+    View foo;
 
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        foo = inflater.inflate(R.layout.setting_main,
+                container, false);
 
-        setContentView(R.layout.setting_main);
         initUI();
-
+        return foo;
     }
 
     private void initUI() {
 
-        Button Back = (Button) findViewById(Btn_Back_Main);
+        Button Back = (Button) foo.findViewById(Btn_Back_Main);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Schedule.class);
+                Intent i = new Intent(getActivity().getApplicationContext(), Schedule.class);
                 startActivity(i);
             }
         });
 
+<<<<<<< HEAD
         ImageButton appset = (ImageButton) findViewById(imBtn_Appset);
         appset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent (getApplicationContext(),Appset.class);
+=======
+        ImageButton appset = (ImageButton) foo.findViewById
+                (imBtn_Appset);
+        appset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent
+                        (getActivity()
+                                .getApplicationContext(),
+                                Appset.class);
+>>>>>>> origin/master
                 startActivity(i);
             }
         });
 
+<<<<<<< HEAD
         ImageButton noti = (ImageButton) findViewById (imBtn_noti);
         noti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent (getApplicationContext(),Notification.class);
+=======
+        ImageButton noti = (ImageButton) foo.findViewById
+                (imBtn_noti);
+        noti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent
+                        (getActivity()
+                                .getApplicationContext(),
+                                Notification.class);
+>>>>>>> origin/master
                 startActivity(i);
             }
         });
 
+<<<<<<< HEAD
         ImageButton ht = (ImageButton) findViewById (imBtn_ht);
         ht.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent (getApplicationContext(),HealthTips.class);
+=======
+        ImageButton ht = (ImageButton) foo.findViewById
+                (imBtn_ht);
+        ht.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent
+                        (getActivity()
+                                .getApplicationContext(),
+                                HealthTips.class);
+>>>>>>> origin/master
                 startActivity(i);
             }
         });
 
+<<<<<<< HEAD
         ImageButton fb = (ImageButton) findViewById(imBtn_fb);
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent (getApplicationContext(),Feedback.class);
+=======
+        ImageButton fb = (ImageButton) foo.findViewById
+                (imBtn_fb);
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent
+                        (getActivity()
+                                .getApplicationContext(),
+                                Feedback.class);
+>>>>>>> origin/master
                 startActivity(i);
             }
         });
