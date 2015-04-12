@@ -19,77 +19,62 @@ import static wyh.wishyouhealthy.R.id.imBtn_noti;
 import static wyh.wishyouhealthy.R.id.imBtn_fb;
 import static wyh.wishyouhealthy.R.id.imBtn_ht;
 
-public class Setting extends Fragment {
+public class Setting extends Activity{
 
-    View foo;
+    protected void onCreate(Bundle savedInstanceState) {
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        foo = inflater.inflate(R.layout.setting_main,
-                container, false);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.setting_main);
         initUI();
-        return foo;
+
     }
 
     private void initUI() {
 
-        Button Back = (Button) foo.findViewById(Btn_Back_Main);
+        Button Back = (Button) findViewById(Btn_Back_Main);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity().getApplicationContext(), Schedule.class);
+                Intent i = new Intent(getApplicationContext(), Schedule.class);
                 startActivity(i);
             }
         });
 
-        ImageButton appset = (ImageButton) foo.findViewById
-                (imBtn_Appset);
+        ImageButton appset = (ImageButton) findViewById(imBtn_Appset);
         appset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent
-                        (getActivity()
-                                .getApplicationContext(),
-                                Appset.class);
+                Intent i = new Intent (getApplicationContext(),Appset.class);
                 startActivity(i);
             }
         });
 
-        ImageButton noti = (ImageButton) foo.findViewById
-                (imBtn_noti);
+        ImageButton noti = (ImageButton) findViewById (imBtn_noti);
         noti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent
-                        (getActivity()
-                                .getApplicationContext(),
-                                Notification.class);
+                Intent i = new Intent (getApplicationContext(),Notification.class);
                 startActivity(i);
             }
         });
 
-        ImageButton ht = (ImageButton) foo.findViewById
-                (imBtn_ht);
+        ImageButton ht = (ImageButton) findViewById (imBtn_ht);
         ht.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent
-                        (getActivity()
-                                .getApplicationContext(),
-                                HealthTips.class);
+                Intent i = new Intent (getApplicationContext(),HealthTips.class);
                 startActivity(i);
             }
         });
 
-        ImageButton fb = (ImageButton) foo.findViewById
-                (imBtn_fb);
+        ImageButton fb = (ImageButton) findViewById(imBtn_fb);
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent
-                        (getActivity()
-                                .getApplicationContext(),
-                                Feedback.class);
+                Intent i = new Intent (getApplicationContext(),Feedback.class);
                 startActivity(i);
             }
         });

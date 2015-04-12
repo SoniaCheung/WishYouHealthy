@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Setting">
 
-    <Button
+   <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
@@ -48,20 +48,20 @@
         android:layout_below="@+id/imBtn_noti"
         android:layout_alignLeft="@+id/imBtn_noti"
         android:layout_alignStart="@+id/imBtn_noti"
-        android:layout_above="@+id/Btn_Back_Main"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/Btn_Back_Main"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imBtn_ht"
         android:src="@mipmap/ic_action_bulb"
-        android:layout_above="@+id/Btn_Back_Main"
         android:layout_below="@+id/TV_AS"
         android:layout_toLeftOf="@+id/imBtn_fb"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/Btn_Back_Main"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,8 +99,16 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Feedback"
         android:id="@+id/TV_FB"
-        android:layout_above="@+id/Btn_Back_Main"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignBottom="@+id/imBtn_fb"
+        android:layout_alignRight="@+id/imBtn_fb"
+        android:layout_alignEnd="@+id/imBtn_fb"/>
+
+    <LinearLayout
+        android:id="@+id/setting_pager"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+    </LinearLayout>
 
 </RelativeLayout>
