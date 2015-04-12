@@ -1,8 +1,6 @@
 package wyh.wishyouhealthy;
 
-/**
- * Created by ccpizzadaisuki on 2015/4/5.
- */
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -25,8 +23,8 @@ public class ScheduleTabPagerAdapter extends FragmentStatePagerAdapter {
                 //Fragment for changing appointment tab
                 return new AppointmentChange();
             case 3:
-                //Fragement for cancelling appointment tab
-                return new AppointmentCancel();
+                //by An Luong, chat with Doctor
+                return new ChatWithDoctor();
         }
         return null;
     }

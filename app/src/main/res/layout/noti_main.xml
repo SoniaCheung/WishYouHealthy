@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/Btn_Back_Set_2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Notification"
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mute"
+        android:id="@+id/muteswitch"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/textView6"
+        android:layout_toLeftOf="@+id/smsswitch"
+        android:layout_toStartOf="@+id/smsswitch" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SMS"
+        android:id="@+id/smsswitch"
+        android:layout_alignTop="@+id/muteswitch"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:id="@+id/emailswitch"
+        android:layout_alignTop="@+id/smsswitch"
+        android:layout_toRightOf="@+id/smsswitch"
+        android:layout_toEndOf="@+id/smsswitch" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Btn_set_alarm"
+        android:src="@mipmap/ic_action_alarm"
+        android:layout_above="@+id/Btn_Back_Set_2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/muteswitch" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click Here to Set the Alarm"
+        android:id="@+id/textView11"
+        android:layout_marginBottom="102dp"
+        android:layout_alignBottom="@+id/Btn_set_alarm"
+        android:layout_centerHorizontal="true" />
+
+    <!--   <TimePicker
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/timePicker"
+           android:layout_below="@+id/muteswitch"
+           android:layout_alignRight="@+id/emailswitch"
+           android:layout_alignEnd="@+id/emailswitch" />
+
+           -->
+
+</RelativeLayout>

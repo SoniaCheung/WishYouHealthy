@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="wyh.wishyouhealthy" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,16 +29,46 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".Ch_appoint"
+        <activity android:name=".Appset"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".Can_appoint"
+        <activity android:name=".Notification"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".Mk_appoint"
+        <activity android:name=".HealthTips"
             android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".Feedback"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".AppsetAA"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".AppsetHelp"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".AppsetTOU"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".Alarm"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".DemoActivity"
+            android:label="Demo Activity Screen"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="in.wptrafficanalyzer.servicealarmdemo.demoactivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
     </application>
