@@ -5,10 +5,32 @@
     android:gravity="center"
     android:orientation="vertical"
     android:descendantFocusability="blocksDescendants"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    >
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  tools:context=".MainActivity"
+                  android:background="@color/theme_colour"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/linearLayout">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imBtn_set"
+            android:src="@mipmap/ic_action_gear"
+            android:background="@color/theme_colour"/>
+
+        <ImageView
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView13"
+            android:src="@mipmap/change_appt_title"
+            android:layout_weight="48.58"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="fill_parent"
@@ -17,15 +39,14 @@
         android:text="Medium Text"
         android:id="@+id/appointment1"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="43dp"
         android:gravity="center"
 
         android:textColor="#FFFFFF"
         android:background="#009687"
         android:minHeight="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_above="@+id/delete_1"
+        android:layout_alignLeft="@+id/delete_1"
+        android:layout_alignStart="@+id/delete_1"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -37,10 +58,9 @@
         android:textColor="#FFFFFF"
         android:background="#009687"
         android:minHeight="120dp"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/delete_1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_above="@+id/delete_2"
+        android:layout_alignLeft="@+id/delete_2"
+        android:layout_alignStart="@+id/delete_2"/>
 
     <Button
         android:text="Refresh!"
@@ -64,12 +84,12 @@
         android:text="Delete."
         android:id="@+id/delete_1"
         android:textColor="#009687"
-        android:layout_below="@+id/appointment1"
+        android:background="@android:color/transparent"
+        android:layout_above="@+id/appointment2"
+        android:layout_alignLeft="@+id/appointment2"
+        android:layout_alignStart="@+id/appointment2"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/transparent"/>
+        android:layout_alignParentEnd="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -77,11 +97,11 @@
         android:text="Delete."
         android:id="@+id/delete_2"
         android:textColor="#009687"
-        android:layout_below="@+id/appointment2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"
+        android:layout_above="@+id/refresh"
+        android:layout_alignLeft="@+id/refresh"
+        android:layout_alignStart="@+id/refresh"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/transparent"/>
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

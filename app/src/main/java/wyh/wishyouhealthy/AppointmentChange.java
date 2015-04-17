@@ -11,13 +11,17 @@ package wyh.wishyouhealthy;
  * http://stackoverflow.com/questions/14292731/exception-in-listfragment-the-specified-child-already-has-a-parent
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 public class AppointmentChange extends Fragment {
 
@@ -31,6 +35,15 @@ public class AppointmentChange extends Fragment {
         data1 = new AppointmentData(getActivity().getApplicationContext(), "appmt1");
         data2 = new AppointmentData(getActivity().getApplicationContext(), "appmt2");
         View foo = inflater.inflate(R.layout.ch_appoint_main, null);
+
+        ImageButton setting = (ImageButton)foo.findViewById(imBtn_set);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Setting.class);
+                startActivity(i);
+            }
+        });
         return foo;
     }
 

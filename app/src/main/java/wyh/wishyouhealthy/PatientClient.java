@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class PatientClient extends AsyncTask<Void, Void, Void> {
     static final int PORT = 8080;
-    static final String IP = "192.168.0.10";
+    static final String IP = "10.27.148.177";
     Socket patientSocket;
     InputStream inFromServer;
     BufferedReader reader;

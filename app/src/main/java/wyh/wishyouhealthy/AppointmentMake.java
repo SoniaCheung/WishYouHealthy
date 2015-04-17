@@ -10,6 +10,7 @@ package wyh.wishyouhealthy;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -19,11 +20,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+
+import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 public class AppointmentMake extends Fragment {
 
@@ -51,6 +55,15 @@ public class AppointmentMake extends Fragment {
         data2 = new AppointmentData(getActivity().getApplicationContext(), "appmt2");
         //
         View foo = inflater.inflate(R.layout.mk_appoint_main, container, false);
+
+        ImageButton setting = (ImageButton)foo.findViewById(imBtn_set);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Setting.class);
+                startActivity(i);
+            }
+        });
         //
 
         spinnerFoo = (Spinner) foo.findViewById(R.id.spinner_doctor);
