@@ -11,6 +11,8 @@ package wyh.wishyouhealthy;
  * http://stackoverflow.com/questions/14292731/exception-in-listfragment-the-specified-child-already-has-a-parent
  */
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -66,15 +68,35 @@ public class AppointmentChange extends Fragment {
         deleteButton_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                data1.setAvailable(true);
-                update();
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Confirm.")
+                        .setMessage("Do you want to delete Appointment 1")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                data1.setAvailable(true);
+                                update();
+                            }
+                        })
+                        .setNegativeButton("No", null).show();
             }
         });
         deleteButton_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                data2.setAvailable(true);
-                update();
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Confirm")
+                        .setMessage("Do you want to delete Appointment 2")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                data2.setAvailable(true);
+                                update();
+                            }
+                        })
+                        .setNegativeButton("No", null).show();
             }
         });
         update();
@@ -87,7 +109,7 @@ public class AppointmentChange extends Fragment {
             appmt1.setText("Not set yet!");
         }
         if (!data2.checkAvailable()) {
-            appmt2.setText("Appointment 1:\n" + data2.getStartTime() + "\n To \n" + data2.getEndTime() + "\n with " + data2.getDoctor());
+            appmt2.setText("Appointment 2:\n" + data2.getStartTime() + "\n To \n" + data2.getEndTime() + "\n with " + data2.getDoctor());
         } else {
             appmt2.setText("Not set yet!");
         }

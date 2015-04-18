@@ -7,11 +7,8 @@ package wyh.wishyouhealthy;
  * .com/android/android-date-picker-example/.
  */
 
-
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,15 +21,14 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-
-import java.util.Calendar;
+import android.widget.Toast;
 
 import static wyh.wishyouhealthy.R.id.imBtn_set;
 
 public class AppointmentMake extends Fragment {
 
     private ArrayAdapter<String> adapterFoo;
-    private Button buttonConfirm;
+    private Button buttonConfirm, replace1, replace2;
     private TextView textConfirm;
     private Spinner spinnerFoo;
 
@@ -44,6 +40,7 @@ public class AppointmentMake extends Fragment {
     private int minStart, minEnd;
     static final int DATE_DIALOG_ID = 999;
     private String[] doctorList= {"Terry", "Micheal", "Henry", "Jone"};
+    private Context context;
 
     DatePicker dateStart, dateEnd;
     TimePicker timeStart, timeEnd;
@@ -51,8 +48,10 @@ public class AppointmentMake extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //
-        data1 = new AppointmentData(getActivity().getApplicationContext(), "appmt1");
-        data2 = new AppointmentData(getActivity().getApplicationContext(), "appmt2");
+        context = getActivity().getApplicationContext();
+        data1 = new AppointmentData(context, "appmt1");
+        data2 = new AppointmentData(context, "appmt2");
+
         //
         View foo = inflater.inflate(R.layout.mk_appoint_main, container, false);
 
@@ -82,10 +81,11 @@ public class AppointmentMake extends Fragment {
         timeEnd = (TimePicker) foo.findViewById(R.id.time_end);
         buttonConfirm = (Button) foo.findViewById(R.id
                 .confirm);
+        replace1 = (Button) foo.findViewById(R.id.replace_1);
+        replace2 = (Button) foo.findViewById(R.id.replace_2);
 
-
-        buttonConfirm.setOnClickListener(new Button.OnClickListener(){
-            public void onClick(View v){
+        replace1.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
                 //
                 yearStart = dateStart.getYear();
                 monthStart = dateStart.getMonth() + 1;
@@ -101,12 +101,73 @@ public class AppointmentMake extends Fragment {
                 //
                 doctor = spinnerFoo.getSelectedItem().toString();
                 //
-                if(data1.checkAvailable()) {
+                if (!data1.checkAvailable()) {
                     data1.addAppointment(doctor, yearStart, monthStart, dayStart, hourStart, minStart,
                             yearEnd, monthEnd, dayEnd, hourEnd, minEnd);
-                } else if(data2.checkAvailable()){
+                    Toast.makeText(context, "Replace appointment 1 successfully", Toast.LENGTH_SHORT).show();
+                } else{
+
+                    Toast.makeText(context, "Appointment 1 is empty, can not be replaced", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        replace2.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                //
+                yearStart = dateStart.getYear();
+                monthStart = dateStart.getMonth() + 1;
+                dayStart = dateStart.getDayOfMonth();
+                hourStart = timeStart.getCurrentHour();
+                minStart = timeStart.getCurrentMinute();
+                //
+                yearEnd = dateEnd.getYear();
+                monthEnd = dateEnd.getMonth() + 1;
+                dayEnd = dateEnd.getDayOfMonth();
+                hourEnd = timeEnd.getCurrentHour();
+                minEnd = timeEnd.getCurrentMinute();
+                //
+                doctor = spinnerFoo.getSelectedItem().toString();
+                //
+                if (!data2.checkAvailable()) {
+                    data1.addAppointment(doctor, yearStart, monthStart, dayStart, hourStart, minStart,
+                            yearEnd, monthEnd, dayEnd, hourEnd, minEnd);
+                    Toast.makeText(context, "Replace appointment 2 successfully", Toast.LENGTH_SHORT).show();
+                } else{
+
+                    Toast.makeText(context, "Appointment 2 is empty, can not be replaced", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        buttonConfirm.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                //
+                yearStart = dateStart.getYear();
+                monthStart = dateStart.getMonth() + 1;
+                dayStart = dateStart.getDayOfMonth();
+                hourStart = timeStart.getCurrentHour();
+                minStart = timeStart.getCurrentMinute();
+                //
+                yearEnd = dateEnd.getYear();
+                monthEnd = dateEnd.getMonth() + 1;
+                dayEnd = dateEnd.getDayOfMonth();
+                hourEnd = timeEnd.getCurrentHour();
+                minEnd = timeEnd.getCurrentMinute();
+                //
+                doctor = spinnerFoo.getSelectedItem().toString();
+                //
+                if (data1.checkAvailable()) {
+                    data1.addAppointment(doctor, yearStart, monthStart, dayStart, hourStart, minStart,
+                            yearEnd, monthEnd, dayEnd, hourEnd, minEnd);
+                    Toast.makeText(context, "Added new Appointment as Appointment 1", Toast.LENGTH_SHORT).show();
+                } else if (data2.checkAvailable()) {
                     data2.addAppointment(doctor, yearStart, monthStart, dayStart, hourStart, minStart,
                             yearEnd, monthEnd, dayEnd, hourEnd, minEnd);
+                    Toast.makeText(context, "Added new Appointment as Appointment 2", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(context, "Cannot make more than 2 Appointment", Toast.LENGTH_SHORT).show();
                 }
             }
         });

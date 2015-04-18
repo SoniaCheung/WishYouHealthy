@@ -96,12 +96,58 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#009687"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="\n"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:background="#EFEFEF"
+            android:textColor="#009687"/>
         <Button
             android:id="@+id/confirm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="@string/confirm"
+            android:textColor="#FFFFFF"
+            android:background="#009687"
+            android:minHeight="80dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="\n"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:background="#EFEFEF"
+            android:textColor="#009687"/>
+
+        <Button
+            android:id="@+id/replace_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="REPLACE FOR APPOINTMENT 1"
+            android:textColor="#FFFFFF"
+            android:background="#009687"
+            android:minHeight="80dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="\n"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:background="#EFEFEF"
+            android:textColor="#009687"/>
+        <Button
+            android:id="@+id/replace_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="REPLACE FOR APPOINTMENT 2"
             android:textColor="#FFFFFF"
             android:background="#009687"
             android:minHeight="80dp"/>
